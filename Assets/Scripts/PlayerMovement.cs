@@ -1,24 +1,49 @@
+using System.Drawing;
 using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
-    private Vector2 newYPos;
-    private float speed = 10f;
+
+    private float speedX;
+    private float speedY;
+    private float propellerRpm;
+    private float propellerMAXRpm;
+    private float rosh;
     public float GRAVITY = 1;
+    public float mass;
 
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-    }
-    void Update()
-    {
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+
         body.gravityScale = GRAVITY;
+        body.velocity = Vector2.zero;
+        body.mass = 7.2f;
 
-        if (Input.GetKey(KeyCode.Space))
+        //propellerRpm  = 0f;
+        //propellerMAXRpm = 192f;
+        rosh = 0f; // РОШ в %
+
+        speedX = 5f;
+        speedY = 50f;
+
+}
+void Update()
+    {
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speedX, (rosh / 100f * speedY / body.mass) - (body.gravityScale * 5));
+        
+        if (Input.GetKey(KeyCode.UpArrow) && rosh <= 100f)
         {
-            body.velocity = new Vector2(0f, body.gravityScale);
+            rosh += 0.1f;
         }
-
+        if (Input.GetKey(KeyCode.DownArrow) && rosh > -0.1f)
+        {
+            rosh -= 0.1f;
+        }
     }
 }
+
+// 45% РОШ - висение
+// 36% РОШ - отрыв
+
+// 192 оборотов НВ в минуту - 100%

@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GRAVITY: 1
+  mass: 0
 --- !u!61 &479624805
 BoxCollider2D:
   m_ObjectHideFlags: 0
