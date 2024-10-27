@@ -221,7 +221,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a7e07dd9365c14db8b08451698acfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  GRAVITY: 1
 --- !u!61 &479624805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -399,11 +399,11 @@ GameObject:
   - component: {fileID: 1083087819}
   - component: {fileID: 1083087820}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Ground_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &1083087817
 SpriteRenderer:
