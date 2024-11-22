@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
 
     private float engineSpeed = 1000;
+    private float rotateSpeed = 40;
 
     //public float speedX;
     //public float speedY;
@@ -33,17 +34,20 @@ public class PlayerMovement : MonoBehaviour
     {
         //body.velocity = new Vector2(Input.GetAxis("Horizontal") * speedX, (rosh / 100f * speedY / body.mass) - (body.gravityScale * 5));
 
-        
-
         if (Input.GetKey(KeyCode.UpArrow))
         {
             body.AddForce(transform.up * engineSpeed * Time.deltaTime);
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    body.AddForce(transform.up * rosh, ForceMode2D.Impulse);
-        //}
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(rotateSpeed*Time.deltaTime*Vector3.back);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(rotateSpeed*Time.deltaTime*Vector3.forward);
+        }
 
         //if (Input.GetKey(KeyCode.DownArrow) && rosh > -0.1f)
         //{
