@@ -5,12 +5,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
 
     private float engineSpeed = 1000;
-    private float rotateSpeed = 40;
-
+    private float engineDelta = 0.02f;
+    private float rotateSpeed = 50;
+    private float rosh = 0f;
     //public float speedX;
     //public float speedY;
     //public float propellerMAXRpm;
-    //public float rosh;
     //public float GRAVITY = 1;
     //public float mass;
 
@@ -32,12 +32,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        //body.velocity = new Vector2(Input.GetAxis("Horizontal") * speedX, (rosh / 100f * speedY / body.mass) - (body.gravityScale * 5));
+        body.AddForce(transform.up * engineSpeed * Time.deltaTime * rosh / 150);
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            body.AddForce(transform.up * engineSpeed * Time.deltaTime);
-        }
+        //if (Input.GetKey(KeyCode.UpArrow))
+        //{
+        //    body.AddForce(transform.up * engineSpeed * Time.deltaTime);
+        //}
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -49,14 +49,17 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(rotateSpeed*Time.deltaTime*Vector3.forward);
         }
 
-        //if (Input.GetKey(KeyCode.DownArrow) && rosh > -0.1f)
-        //{
-        //    rosh -= 0.1f;
-        //}
+        if (Input.GetKey(KeyCode.DownArrow) && rosh > 0.1f)
+        {
+            rosh -= engineDelta;
+        }
+        if (Input.GetKey(KeyCode.UpArrow) && rosh < 99.9f)
+        {
+            rosh += engineDelta;
+        }
     }
 }
 
-// 45% РОШ - висение
-// 36% РОШ - отрыв
+// +-40% РОШ - висение
 
 // 192 оборотов НВ в минуту - 100%
