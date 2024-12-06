@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
 
     private float engineSpeed = 1000;
-    private float engineDelta = 0.02f;
+    private float engineDelta = 0.04f;
     private float rotateSpeed = 50;
     private float rosh = 0f;
     //public float speedX;
@@ -34,11 +34,6 @@ public class PlayerMovement : MonoBehaviour
     {
         body.AddForce(transform.up * engineSpeed * Time.deltaTime * rosh / 150);
 
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    body.AddForce(transform.up * engineSpeed * Time.deltaTime);
-        //}
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(rotateSpeed*Time.deltaTime*Vector3.back);
@@ -57,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rosh += engineDelta;
         }
+
     }
 }
 
