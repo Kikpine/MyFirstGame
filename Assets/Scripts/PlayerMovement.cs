@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private float engineSpeed = 1000;
     private float engineDelta = 0.02f;
     private float rotateSpeed = 50;
-    private float rosh = 0f;
+    [SerializeField] private float rosh = 0f;
+    private float rotateSide = 1f;
+
     //public float speedX;
     //public float speedY;
     //public float propellerMAXRpm;
@@ -34,19 +36,14 @@ public class PlayerMovement : MonoBehaviour
     {
         body.AddForce(transform.up * engineSpeed * Time.deltaTime * rosh / 150);
 
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    body.AddForce(transform.up * engineSpeed * Time.deltaTime);
-        //}
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate(rotateSpeed*Time.deltaTime*Vector3.back);
+            transform.Rotate(rotateSpeed*rotateSide*Time.deltaTime*Vector3.back);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate(rotateSpeed*Time.deltaTime*Vector3.forward);
+            transform.Rotate(rotateSpeed*rotateSide*Time.deltaTime*Vector3.forward);
         }
 
         if (Input.GetKey(KeyCode.DownArrow) && rosh > 0.1f)
@@ -56,6 +53,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) && rosh < 99.9f)
         {
             rosh += engineDelta;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.Rotate(0, 180f, 0);
+            rotateSide *= -1;
+        }
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            rosh = 73.545f;
         }
     }
 }
