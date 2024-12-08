@@ -3,7 +3,14 @@ guid: b027a52d377f1ef4287d7b829ccc1d4f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - firePoint: {instanceID: 0}
+  - bullet_7_62mm: {fileID: 1570480248397192915, guid: 5953a5c5213158a40a602f222593135e, type: 3}
+  - bullet_12_7mm: {fileID: 1570480248397192915, guid: b64fa075e420b594ba871475ab3ae8c9, type: 3}
+  - bullet_23mm: {fileID: 1570480248397192915, guid: 69e1f1a0f4a078e4f954dcc93444226e, type: 3}
+  - granade_30mm: {fileID: 1570480248397192915, guid: b1918f528f6305242b49c70562be341a, type: 3}
+  - rocket_80mm: {fileID: 1570480248397192915, guid: c42d09ff508441649802884c643153af, type: 3}
+  - bomb: {fileID: 1570480248397192915, guid: 4965e4d7d4401c6428b09abd02836bf2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

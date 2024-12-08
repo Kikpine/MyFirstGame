@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Granade_30mm : MonoBehaviour
 {
-    public float speed = 0.2f;
+    private float speed = 20f;
     public Rigidbody2D body;
     void Start()
     {
