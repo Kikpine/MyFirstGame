@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5326285106537530569}
   - component: {fileID: 7863618112743172531}
   - component: {fileID: 4375207072838564149}
-  - component: {fileID: 535017282363133389}
+  - component: {fileID: -1253021437484973861}
   m_Layer: 0
   m_Name: Rocket_80mm
   m_TagString: Untagged
@@ -113,38 +113,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &535017282363133389
-CapsuleCollider2D:
+--- !u!114 &-1253021437484973861
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570480248397192915}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000002, y: 2.0000005}
-  m_Direction: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365acdc466432b441b803fe2ef501fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 4375207072838564149}
