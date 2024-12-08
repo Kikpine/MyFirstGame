@@ -11,6 +11,13 @@ public class Weapon : MonoBehaviour
     public GameObject granade_30mm;
     public GameObject rocket_80mm;
     public GameObject bomb;
+
+    private PlayerMovement playerMovement;
+    private void Start()
+    {
+        playerMovement = GetComponent<PlayerMovement>(); 
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("7.62mm"))
@@ -60,6 +67,13 @@ public class Weapon : MonoBehaviour
     }
     void Shoot_FAB()
     {
-        Instantiate(bomb, firePoint.position, firePoint.rotation);
+        GameObject bombInstance = Instantiate(bomb, firePoint.position, firePoint.rotation);
+        // Получаем скорость вертолета и передаем её для бомбы
+        FAB bombScript = bombInstance.GetComponent<FAB>();
+
+        if (bombScript != null)
+        {
+            bombScript.Initialize(playerMovement.GetCurrentVelocity());
+        }
     }
 }

@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class FAB : MonoBehaviour
 {
-    private float speed = 0f;
     public Rigidbody2D body;
+
     void Start()
     {
-        body.velocity = transform.forward * speed;
+        body = GetComponent<Rigidbody2D>();
+    }
+
+    // Метод для инициализации скорости бомбы
+    public void Initialize(Vector2 helicopterSpeed)
+    {
+        // Устанавливаем скорость бомбы равной скорости вертолета
+        body.velocity = helicopterSpeed;
     }
 }

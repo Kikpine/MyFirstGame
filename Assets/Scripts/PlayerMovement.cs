@@ -63,6 +63,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rosh = 73.545f;
         }
+
+
+    }
+    public Vector2 GetCurrentVelocity()
+    {
+        return body.velocity;
     }
 }
 
