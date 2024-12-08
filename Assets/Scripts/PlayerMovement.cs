@@ -5,8 +5,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
 
     private float engineSpeed = 1000;
-    private float engineDelta = 0.02f;
-    private float rotateSpeed = 50;
+    private float engineDelta = 0.05f; // DELETE ON RELEASE
+    private float rotateSpeed = 50; 
     [SerializeField] private float rosh = 0f;
     private float rotateSide = 1f;
 
