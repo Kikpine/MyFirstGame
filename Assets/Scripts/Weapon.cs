@@ -12,11 +12,7 @@ public class Weapon : MonoBehaviour
     public GameObject rocket_80mm;
     public GameObject bomb;
 
-    private PlayerMovement playerMovement;
-    private void Start()
-    {
-        playerMovement = GetComponent<PlayerMovement>(); 
-    }
+    private Coroutine shootingCoroutine; // Ссылка на корутину стрельбы
 
     void Update()
     {
@@ -26,7 +22,7 @@ public class Weapon : MonoBehaviour
         }
         if (Input.GetButtonDown("12.7mm"))
         {
-            Shoot_12_7mm();
+            StartShooting12_7mm();
         }
         if (Input.GetButtonDown("23mm"))
         {
@@ -44,36 +40,59 @@ public class Weapon : MonoBehaviour
         {
             Shoot_FAB();
         }
+
+        // Остановка стрельбы при отпускании кнопки
+        if (Input.GetButtonUp("12.7mm") && shootingCoroutine != null)
+        {
+            StopCoroutine(shootingCoroutine);
+            shootingCoroutine = null; // Сбрасываем ссылку на корутину
+        }
     }
+
     void Shoot_7_62mm()
     {
         Instantiate(bullet_7_62mm, firePoint.position, firePoint.rotation);
     }
+
+    void StartShooting12_7mm()
+    {
+        if (shootingCoroutine == null) // Проверяем, не запущена ли уже корутина
+        {
+            shootingCoroutine = StartCoroutine(Shoot12_7mm());
+        }
+    }
+
+    IEnumerator Shoot12_7mm()
+    {
+        while (true) // Бесконечный цикл для стрельбы
+        {
+            Shoot_12_7mm(); // Вызываем метод стрельбы
+            yield return new WaitForSeconds(0.1f); // Ждем 0.1 секунды между выстрелами (10 снарядов в секунду)
+        }
+    }
+
     void Shoot_12_7mm()
     {
         Instantiate(bullet_12_7mm, firePoint.position, firePoint.rotation);
     }
+
     void Shoot_23mm()
     {
         Instantiate(bullet_23mm, firePoint.position, firePoint.rotation);
     }
+
     void Shoot_30mm()
     {
         Instantiate(granade_30mm, firePoint.position, firePoint.rotation);
     }
+
     void Shoot_80mm()
     {
         Instantiate(rocket_80mm, firePoint.position, firePoint.rotation);
     }
+
     void Shoot_FAB()
     {
-        GameObject bombInstance = Instantiate(bomb, firePoint.position, firePoint.rotation);
-        // Получаем скорость вертолета и передаем её для бомбы
-        FAB bombScript = bombInstance.GetComponent<FAB>();
-
-        if (bombScript != null)
-        {
-            bombScript.Initialize(playerMovement.GetCurrentVelocity());
-        }
+        Instantiate(bomb, firePoint.position, firePoint.rotation);
     }
 }
