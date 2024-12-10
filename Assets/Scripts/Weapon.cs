@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     private Coroutine shootingCoroutine_7_62mm; // Ссылка на корутину стрельбы
     private Coroutine shootingCoroutine_12_7mm; // Ссылка на корутину стрельбы
     private Coroutine shootingCoroutine_23mm; // Ссылка на корутину стрельбы
+    private Coroutine shootingCoroutine_30mm; // Ссылка на корутину стрельбы
 
 
     private void Start()
@@ -40,7 +41,7 @@ public class Weapon : MonoBehaviour
         }
         if (Input.GetButtonDown("30mm(AGS)"))
         {
-            Shoot_30mm();
+            StartShooting30mm();
         }
         if (Input.GetButtonDown("80mm(NAR)"))
         {
@@ -67,6 +68,11 @@ public class Weapon : MonoBehaviour
             StopCoroutine(shootingCoroutine_23mm);
             shootingCoroutine_23mm = null; // Сбрасываем ссылку на корутину
         }
+        if (Input.GetButtonUp("30mm(AGS)") && shootingCoroutine_30mm != null)
+        {
+            StopCoroutine(shootingCoroutine_30mm);
+            shootingCoroutine_30mm = null; // Сбрасываем ссылку на корутину
+        }
     }
 
     void Shoot_7_62mm()
@@ -80,6 +86,10 @@ public class Weapon : MonoBehaviour
     void Shoot_23mm()
     {
         Instantiate(bullet_23mm, firePoint.position, firePoint.rotation);
+    }    
+    void Shoot_30mm()
+    {
+        Instantiate(granade_30mm, firePoint.position, firePoint.rotation);
     }
 
     // 7.62
@@ -134,9 +144,21 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void Shoot_30mm()
+    void StartShooting30mm()
     {
-        Instantiate(granade_30mm, firePoint.position, firePoint.rotation);
+        if (shootingCoroutine_30mm == null) // Проверяем, не запущена ли уже корутина
+        {
+            shootingCoroutine_30mm = StartCoroutine(ImShoot30mm());
+        }
+    }
+
+    IEnumerator ImShoot30mm()
+    {
+        while (true) // Бесконечный цикл для стрельбы
+        {
+            Shoot_30mm(); // Вызываем метод стрельбы
+            yield return new WaitForSeconds(0.1f); // Ждем  секунды между выстрелами (10 снарядов в секунду) - 600 выстрелов в минуту
+        }
     }
 
     void Shoot_80mm()
