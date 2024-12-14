@@ -6,7 +6,7 @@ public class FAB : MonoBehaviour
 {
     public Rigidbody2D body;
 
-    private int framesToStayHorizontal = 200; // Количество кадров, в течение которых бомба будет горизонтальной
+    private int framesToStayHorizontal = 50; // Количество кадров, в течение которых бомба будет горизонтальной
     private int currentFrame = 0; // Текущий кадр
     private float rotationSpeed = 2f; // Скорость вращения
 

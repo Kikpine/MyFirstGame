@@ -19,7 +19,6 @@ public class Weapon : MonoBehaviour
     private Coroutine shootingCoroutine_23mm; // —сылка на корутину стрельбы
     private Coroutine shootingCoroutine_30mm; // —сылка на корутину стрельбы
 
-
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
