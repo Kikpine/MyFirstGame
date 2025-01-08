@@ -73,5 +73,5 @@ public class PlayerMovement : MonoBehaviour
 }
 
 // +-40% РОШ - висение
-
+//
 // 192 оборотов НВ в минуту - 100%
