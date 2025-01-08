@@ -17,6 +17,12 @@ public class Granade_30mm : MonoBehaviour
     {
         // Поворачиваем ракету в направлении движения с плавным переходом
         RotateTowardsMovement();
+
+        //
+        //void OnTriggerEnter2D(Collider2D hitInfo)
+        //{
+        //    hit = true;
+        //}
     }
     private void RotateTowardsMovement()
     {
@@ -33,4 +39,6 @@ public class Granade_30mm : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+
 }
