@@ -10,13 +10,14 @@ public class NAR : MonoBehaviour
 
     void Start()
     {
+        body = GetComponent<Rigidbody2D>();
         body.velocity = transform.right * speed;
     }
-    void Update()
-    {
+    //void Update()
+    //{
         // ѕоворачиваем ракету в направлении движени€ с плавным переходом
-        RotateTowardsMovement();
-    }
+       // RotateTowardsMovement();
+    //}
     private void RotateTowardsMovement()
     {
         // ѕровер€ем, есть ли скорость
@@ -32,4 +33,17 @@ public class NAR : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Enemy enemy = collision.GetComponent<Enemy>();
+
+        if (enemy != null)
+        {
+            enemy.TakeDamage(200);
+
+        }
+        Destroy(gameObject);
+    }
+
 }
