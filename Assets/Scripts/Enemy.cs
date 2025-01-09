@@ -7,10 +7,7 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody2D body;
     public float health = 1000;
-    private void Start()
-    {
-        body = GetComponent<Rigidbody2D>();
-    }
+
     public void TakeDamage(float Damage)
     {
         health -= Damage;
@@ -19,6 +16,9 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void Start()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
 
 }
