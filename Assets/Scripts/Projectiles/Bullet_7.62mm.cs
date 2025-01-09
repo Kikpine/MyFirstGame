@@ -40,8 +40,8 @@ public class Bullet_7_62mm : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(10);
-            Destroy(gameObject);
         }
- 
+        Destroy(gameObject);
+
     }
 }
