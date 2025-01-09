@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
         ////engineSpeed  = 0f;
         ////propellerMAXRpm = 192f;
-        //rosh = 0f; // РОШ в %
+        //rosh = 0f; // ГђГЋГ Гў %
 
         //speedX = 5f;
         //speedY = 50f;
@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rosh += engineDelta;
         }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.Rotate(0, 180f, 0);
@@ -72,6 +73,6 @@ public class PlayerMovement : MonoBehaviour
     }
 }
 
-// +-40% РОШ - висение
+// +-40% ГђГЋГ - ГўГЁГ±ГҐГ­ГЁГҐ
 //
-// 192 оборотов НВ в минуту - 100%
+// 192 Г®ГЎГ®Г°Г®ГІГ®Гў ГЌГ‚ Гў Г¬ГЁГ­ГіГІГі - 100%
