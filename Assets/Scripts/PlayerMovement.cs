@@ -72,7 +72,3 @@ public class PlayerMovement : MonoBehaviour
         return body.velocity;
     }
 }
-
-// +-40% ÐÎØ - âèñåíèå
-//
-// 192 îáîðîòîâ ÍÂ â ìèíóòó - 100%

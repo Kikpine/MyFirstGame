@@ -29,22 +29,19 @@ public class FAB : MonoBehaviour
     {
         if (currentFrame < framesToStayHorizontal)
         {
-            // Увеличиваем счетчик кадров
             currentFrame++;
         }
         else
         {
-            // Поворачиваем бомбу в направлении движения с плавным переходом
             RotateTowardsMovement();
         }
     }
 
     private void RotateTowardsMovement()
     {
-        // Проверяем, есть ли скорость
         if (body.velocity != Vector2.zero)
         {
-            // Вычисляем угол поворота
+            // Вычисляем угол поворота из радиан в градусы
             float angle = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg;
 
             // Создаем кватернион для нового угла
@@ -61,7 +58,6 @@ public class FAB : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(1000);
-
         }
         Destroy(gameObject);
     }
