@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b027a52d377f1ef4287d7b829ccc1d4f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - firePoint: {instanceID: 0}
+  - bullet_7_62mm: {instanceID: 0}
+  - bullet_12_7mm: {instanceID: 0}
+  - bullet_23mm: {instanceID: 0}
+  - granade_30mm: {instanceID: 0}
+  - rocket_80mm: {instanceID: 0}
+  - bomb: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
