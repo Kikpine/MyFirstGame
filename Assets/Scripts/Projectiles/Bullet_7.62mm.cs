@@ -32,4 +32,16 @@ public class Bullet_7_62mm : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Enemy enemy = collision.GetComponent<Enemy>();
+
+        if (enemy != null)
+        {
+            enemy.TakeDamage(10);
+            Destroy(gameObject);
+        }
+ 
+    }
 }
